@@ -149,13 +149,13 @@ function calculateScores(inputRef, type) {
 
 function clearFields() {
 	document.getElementById("t1-numBalls").value = "";
-	document.getElementById("t1-highHang").value = "";
-	document.getElementById("t1-lowHang").value = "";
-	document.getElementById("t1-park").value = "";
+	document.getElementById("t1-highHang").checked = false;
+	document.getElementById("t1-lowHang").checked = false;
+	document.getElementById("t1-park").checked = false;
 	document.getElementById("t2-numBalls").value = "";
-	document.getElementById("t2-highHang").value = "";
-	document.getElementById("t2-lowHang").value = "";
-	document.getElementById("t2-park").value = "";
+	document.getElementById("t2-highHang").checked = false;
+	document.getElementById("t2-lowHang").checked = false;
+	document.getElementById("t2-park").checked = false;
 	calculateScores();
 }
 
