@@ -180,3 +180,29 @@ img.logo {
     width: 200px;
     height: auto;
 }
+
+input[type='checkbox']{
+    height: 50%;
+    width: 50%;
+
+}
+
+/* #t1Score {
+    background-color: var(--grey);
+    border-radius: 10px;
+    padding: 10px 10px;
+    display: flex;
+    flex-direction: row;
+} */
+
+/* #t2Score {;
+    background-color: var(--grey);
+    border-radius: 10px;
+    padding: 10px 10px;
+    display: flex;
+    flex-direction: row;
+} */
+
+h2.title{
+    color: gray;
+}

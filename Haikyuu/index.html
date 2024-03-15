@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VEX</title>
+
+    <script src="script.js"></script>
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="timerContainer" class="matchTimer">
+        <div>
+            <h1>STEM Labs Haikyuu</h1>
+            <p id="timerText">60 seconds</p>
+        </div>
+        <div class="buttonContainer">
+            <button id="startBtn" class="timerBtn greenBtn" type="button">Start</button>
+            <button id="stopBtn" class="timerBtn redBtn" type="button">Stop</button>
+            <button id="resetBtn" class="timerBtn blueBtn" type="button">Reset</button>
+        </div>
+        <div class="columnContainer">
+            <button id="countdownSwitch" class="wideBtn whiteBtn" type="button">Enable Switch Sounds</button>
+            <button id="scoreSwitch" class="wideBtn whiteBtn" type="button">Score Calculator</button>
+        </div>
+    </div>
+    <div id="scoreContainer" class="scoreTracker">
+        <h1>Haikyuu Score Calculator</h1>
+        <h2 class="title">Team 1</h2>
+        <div class="inputContainer">
+            <div>
+                <section class="inputSection">
+                <label for="t1-numBalls">Number of Balls on Opposite Side</label>
+                </section>
+                <section class="inputSection checkBox1">
+                    <label for="t1-highHang">High Hang</label>
+                </section>
+                <section class="inputSection checkBox1">
+                    <label for="t1-lowHang">Low Hang</label>
+                </section>
+                <section class="inputSection checkBox1">
+                    <label for="t1-park">Parking</label>
+                </section>
+            </div>
+            
+            <div class="inputValueHolder">
+                <input type="number" id="t1-numBalls" class="inputValue" placeholder="" min="0" max="12">
+                <input type="checkbox" id="t1-highHang" class="inputValue checkBox1" value="1" onclick= "check(this, 'checkBox1');">
+                <input type="checkbox" id="t1-lowHang" class="inputValue checkBox1" value="1" onclick= "check(this, 'checkBox1');">
+                <input type="checkbox" id="t1-park" class="inputValue checkBox1" value="1" onclick= "check(this, 'checkBox1');">
+            </div>
+        </div>
+
+        <h1 id="t1Score">Score: 0</h1>
+
+        <br>
+        <h2 class="title">Team 2</h2>
+        <div class="inputContainer">
+            <div>
+                <section class="inputSection">
+                    <label for="t2-numBalls">Number of Balls on Opposite Side</label>
+                </section>
+                <section class="inputSection checkBox2">
+                    <label for="t2-highHang">High Hang</label>
+                </section>
+                <section class="inputSection checkBox2">
+                    <label for="t2-lowHang">Low Hang</label>
+                </section>
+                <section class="inputSection checkBox2">
+                    <label for="t2-park">Parking</label>
+                </section>
+            </div>
+
+            <div class="inputValueHolder">
+                <input type="number" id="t2-numBalls" class="inputValue inputValue" placeholder="" min="0" max="12">
+                <input type="checkbox" id="t2-highHang" class="inputValue checkBox2"  value="1" onclick= "check(this, 'checkBox2');">
+                <input type="checkbox" id="t2-lowHang" class="inputValue checkBox2" value="1" onclick= "check(this, 'checkBox2');">
+                <input type="checkbox" id="t2-park" class="inputValue checkBox2" value="1"  onclick= "check(this, 'checkBox2');">
+            </div>
+        </div>
+
+        <h1 id="t2Score">Score: 0</h1>
+        <div class="columnContainer">
+            <button id="clearBtn" class="wideBtn redBtn" type="button">Clear Fields</button>
+            <button id="timerSwitch" class="wideBtn whiteBtn" type="button">Match Timer</button>
+        </div>
+    </div>
+    <div id="logo">
+        <img src="Images/STEM%20Space%204%20Kids%201%20JPG.jpg" class="logo">
+
+    </div>
+</body>
+</html>

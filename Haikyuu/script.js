@@ -82,57 +82,80 @@ function showScore() {
 
 //Score calculator
 
-function calculateScores(inputRef) {
-    if (inputRef) { // ensure values only within the declared min and max are inputted
-        const minVal = inputRef.getAttribute("min");
-        const maxVal = inputRef.getAttribute("max");
-        const defVal = inputRef.getAttribute("placeholder");
-
-	var minNum = parseInt(minVal);
-	var maxNum = parseInt(maxVal);
-	    
-        if (parseInt(inputRef.value) > maxNum || parseInt(inputRef.value) < minNum) {
-            inputRef.value = defVal;
+function calculateScores(inputRef, type) {
+    if (type == 1){ // input type is numerical
+        if (inputRef) { // ensure values only within the declared min and max are inputted
+            const minVal = inputRef.getAttribute("min");
+            const maxVal = inputRef.getAttribute("max");
+            const defVal = inputRef.getAttribute("placeholder");
+    
+        var minNum = parseInt(minVal);
+        var maxNum = parseInt(maxVal);
+            
+            if (parseInt(inputRef.value) > maxNum || parseInt(inputRef.value) < minNum) {
+                inputRef.value = defVal;
+            }
         }
     }
-	let score = 0;
-	let scoreInvalid = false;
-	const volcano = document.getElementById("volcano").value;
-	const orangeTile = document.getElementById("orangeTile").value;
-	const pipeline = document.getElementById("pipeline").value;
-	const blueTile = document.getElementById("blueTile").value;
-	const purpleTile = document.getElementById("purpleTile").value;
-    const turbine = document.getElementById("turbine").value;
-    const clam = document.getElementById("clam").value;
-    const pearl = document.getElementById("pearl").value;
-    const wildlife = document.getElementById("wildlife").value;
-	const scoreKey = [20,5,10,5,5,5,10,10,-3];
 
-	let matchData = [volcano, orangeTile, pipeline, blueTile, purpleTile, turbine, clam, pearl, wildlife];
+	let score1 = 0;
+    let score2 = 0;
+
+	let scoreInvalid = false;
+	const t1Balls = document.getElementById("t1-numBalls").value;
+	const t1HighHang = document.getElementById("t1-highHang");
+	const t1LowHang = document.getElementById("t1-lowHang");
+	const t1Park = document.getElementById("t1-park");
+    const t2Balls = document.getElementById("t2-numBalls").value;
+	const t2HighHang = document.getElementById("t2-highHang");
+	const t2LowHang = document.getElementById("t2-lowHang");
+	const t2Park = document.getElementById("t2-park");
+	const scoreKey = [1, 4, 2, 1, 1, 4, 2, 1];
+
+	let matchData = [
+        t1Balls,
+        t1HighHang.checked ? 1 : 0,
+        t1LowHang.checked ? 1 : 0,
+        t1Park.checked ? 1 : 0,
+        t2Balls,
+        t2HighHang.checked ? 1 : 0,
+        t2LowHang.checked ? 1 : 0,
+        t2Park.checked ? 1 : 0
+    ];
+
+    console.log(matchData);
+
 	matchData = matchData.map(function (currentElement) {
 		return currentElement == "" ? 0 : parseInt(currentElement);
 	});
 
-	for(let i = 0; i < 9; i++) {
-		score += matchData[i] * scoreKey[i];
+	for(let i = 0; i < 4; i++) {
+		score1 += matchData[i] * scoreKey[i];
 	}
 
-		score = Math.max(score, 0);
-		document.getElementById("finalScore").style.color = "black";
-		document.getElementById("finalScore").innerHTML = "Score: " + score.toString();
+    for(let i = 3; i < 8; i++) {
+		score2 += matchData[i] * scoreKey[i];
+	}
+
+		score1 = Math.max(score1, 0);
+        score2 = Math.max(score2, 0);
+
+		document.getElementById("t1Score").style.color = "black";
+		document.getElementById("t1Score").innerHTML = "Score: " + score1.toString();
+        document.getElementById("t2Score").style.color = "black";
+		document.getElementById("t2Score").innerHTML = "Score: " + score2.toString();
 
 }
 
 function clearFields() {
-	document.getElementById("volcano").value = "";
-	document.getElementById("orangeTile").value = "";
-	document.getElementById("pipeline").value = "";
-	document.getElementById("blueTile").value = "";
-	document.getElementById("purpleTile").value = "";
-    document.getElementById("turbine").value = "";
-    document.getElementById("clam").value = ""; 
-    document.getElementById("pearl").value = "";
-    document.getElementById("wildlife").value = "";
+	document.getElementById("t1-numBalls").value = "";
+	document.getElementById("t1-highHang").value = "";
+	document.getElementById("t1-lowHang").value = "";
+	document.getElementById("t1-park").value = "";
+	document.getElementById("t2-numBalls").value = "";
+	document.getElementById("t2-highHang").value = "";
+	document.getElementById("t2-lowHang").value = "";
+	document.getElementById("t2-park").value = "";
 	calculateScores();
 }
 
@@ -153,15 +176,14 @@ window.addEventListener("DOMContentLoaded", function() {
     const scoreSwitch = document.getElementById("scoreSwitch");
     const timerText = this.document.getElementById("timerText");
     // score variables
-	const volcano = document.getElementById("volcano");
-	const orangeTile = document.getElementById("orangeTile");
-	const pipeline = document.getElementById("pipeline");
-	const blueTile = document.getElementById("blueTile");
-	const purpleTile = document.getElementById("purpleTile");
-	const turbine = document.getElementById("turbine");
-	const clam = document.getElementById("clam");
-    const pearl = document.getElementById("pearl");
-    const wildlife = document.getElementById("wildlife");
+	const t1Balls = document.getElementById("t1-numBalls");
+	const t1HighHang = document.getElementById("t1-highHang");
+	const t1LowHang = document.getElementById("t1-lowHang");
+	const t1Park = document.getElementById("t1-park");
+    const t2Balls = document.getElementById("t2-numBalls");
+	const t2HighHang = document.getElementById("t2-highHang");
+	const t2LowHang = document.getElementById("t2-lowHang");
+	const t2Park = document.getElementById("t2-park");
 
     const clearBtn = document.getElementById("clearBtn");
     const timerSwitch = document.getElementById("timerSwitch");
@@ -175,35 +197,51 @@ window.addEventListener("DOMContentLoaded", function() {
         scoreSwitch.addEventListener("click", showScore)
         // score events
         //input buttons
-        volcano.addEventListener("keyup", () => {calculateScores(volcano)})
-        volcano.addEventListener("change", () => {calculateScores(volcano)})
-        //
-        orangeTile.addEventListener("keyup", () => {calculateScores(orangeTile)})
-        orangeTile.addEventListener("change", () => {calculateScores(orangeTile)})
-        //
-        pipeline.addEventListener("keyup", () => {calculateScores(pipeline)})
-        pipeline.addEventListener("change", () => {calculateScores(pipeline)})
-        //
-        blueTile.addEventListener("keyup", () => {calculateScores(blueTile)})
-        blueTile.addEventListener("change", () => {calculateScores(blueTile)})
-        //
-        purpleTile.addEventListener("keyup", () => {calculateScores(purpleTile)})
-        purpleTile.addEventListener("change", () => {calculateScores(purpleTile)})
-        //
-        turbine.addEventListener("keyup",() => {calculateScores(turbine)})
-        turbine.addEventListener("change", () => {calculateScores(turbine)})
-        //
-        clam.addEventListener("keyup", () => {calculateScores(clam)})
-        clam.addEventListener("change", () => {calculateScores(clam)})
-        //
-        pearl.addEventListener("keyup", () => {calculateScores(pearl)})
-        pearl.addEventListener("change", () => {calculateScores(pearl)})
-        //
-        wildlife.addEventListener("keyup", () => {calculateScores(wildlife)})
-        wildlife.addEventListener("change", () => {calculateScores(wildlife)})
+        t1Balls.addEventListener("keyup", () => calculateScores(t1Balls, 1));
+        t1Balls.addEventListener("change", () => calculateScores(t1Balls, 1));
+
+        t1HighHang.addEventListener("change", () => calculateScores(t1HighHang, 2));
+
+        t1LowHang.addEventListener("change", () => calculateScores(t1LowHang, 2));
+
+        t1Park.addEventListener("change", () => calculateScores(t1Park, 2));
+
+        t2Balls.addEventListener("keyup", () => calculateScores(t2Balls, 1));
+        t2Balls.addEventListener("change", () => calculateScores(t2Balls, 1));
+
+        t2HighHang.addEventListener("change", () => calculateScores(t2HighHang, 2));
+
+        t2LowHang.addEventListener("change", () => calculateScores(t2LowHang, 2));
+
+        t2Park.addEventListener("change", () => calculateScores(t2Park, 2));
 
         //score buttons
         clearBtn.addEventListener("click", clearFields);
         timerSwitch.addEventListener("click", showTimer);
     }   
 });
+
+function check(input, className)
+{
+    
+    var checkboxes = document.getElementsByClassName(className);
+    
+    for(var i = 0; i < checkboxes.length; i++)
+    {
+        //uncheck all
+        if(checkboxes[i].checked == true)
+        {
+            checkboxes[i].checked = false;
+        }
+    }
+    
+    //set checked of clicked object
+    if(input.checked == true)
+    {
+        input.checked = false;
+    }
+    else
+    {
+        input.checked = true;
+    }	
+}
