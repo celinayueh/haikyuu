@@ -36,22 +36,31 @@
                 <section class="inputSection">
                 <label for="t1-numBalls">Number of Balls on Opposite Side</label>
                 </section>
-                <section class="inputSection checkBox1">
-                    <label for="t1-highHang">High Hang</label>
+                <section class="inputSection">
+                    <label for="t1-highHang1">High Hang</label>
                 </section>
-                <section class="inputSection checkBox1">
-                    <label for="t1-lowHang">Low Hang</label>
+                <section class="inputSection">
+                    <label for="t1-lowHang1">Low Hang</label>
                 </section>
-                <section class="inputSection checkBox1">
-                    <label for="t1-park">Parking</label>
+                <section class="inputSection">
+                    <label for="t1-park1">Parking</label>
                 </section>
             </div>
             
             <div class="inputValueHolder">
                 <input type="number" id="t1-numBalls" class="inputValue" placeholder="" min="0" max="12">
-                <input type="checkbox" id="t1-highHang" class="inputValue checkBox1" value="1" onclick= "check(this, 'checkBox1');">
-                <input type="checkbox" id="t1-lowHang" class="inputValue checkBox1" value="1" onclick= "check(this, 'checkBox1');">
-                <input type="checkbox" id="t1-park" class="inputValue checkBox1" value="1" onclick= "check(this, 'checkBox1');">
+                <div class="point-group inputValueGroup">
+                    <input type="checkbox" id="t1-highHang1" class="inputValue checkBox11" value="1" onclick= "check(this, 'checkBox11');">
+                    <input type="checkbox" id="t1-highHang2" class="inputValue checkBox12" value="1" onclick= "check(this, 'checkBox12');">
+                </div>
+                <div class="point-group inputValueGroup">
+                    <input type="checkbox" id="t1-lowHang1" class="inputValue checkBox11" value="1" onclick= "check(this, 'checkBox11');">
+                    <input type="checkbox" id="t1-lowHang2" class="inputValue checkBox12" value="1" onclick= "check(this, 'checkBox12');">
+                </div>
+                <div class="point-group inputValueGroup">
+                    <input type="checkbox" id="t1-park1" class="inputValue checkBox11" value="1" onclick= "check(this, 'checkBox11');">
+                    <input type="checkbox" id="t1-park2" class="inputValue checkBox12" value="1" onclick= "check(this, 'checkBox12');">
+                </div>
             </div>
         </div>
 
@@ -65,21 +74,30 @@
                     <label for="t2-numBalls">Number of Balls on Opposite Side</label>
                 </section>
                 <section class="inputSection checkBox2">
-                    <label for="t2-highHang">High Hang</label>
+                    <label for="t2-highHang1">High Hang</label>
                 </section>
                 <section class="inputSection checkBox2">
-                    <label for="t2-lowHang">Low Hang</label>
+                    <label for="t2-lowHang1">Low Hang</label>
                 </section>
                 <section class="inputSection checkBox2">
-                    <label for="t2-park">Parking</label>
+                    <label for="t2-park1">Parking</label>
                 </section>
             </div>
 
             <div class="inputValueHolder">
-                <input type="number" id="t2-numBalls" class="inputValue inputValue" placeholder="" min="0" max="12">
-                <input type="checkbox" id="t2-highHang" class="inputValue checkBox2"  value="1" onclick= "check(this, 'checkBox2');">
-                <input type="checkbox" id="t2-lowHang" class="inputValue checkBox2" value="1" onclick= "check(this, 'checkBox2');">
-                <input type="checkbox" id="t2-park" class="inputValue checkBox2" value="1"  onclick= "check(this, 'checkBox2');">
+                <input type="number" id="t2-numBalls" class="inputValue" placeholder="" min="0" max="12">
+                <div class="point-group inputValueGroup">
+                    <input type="checkbox" id="t2-highHang1" class="inputValue checkBox21" value="1" onclick= "check(this, 'checkBox21');">
+                    <input type="checkbox" id="t2-highHang2" class="inputValue checkBox22" value="1" onclick= "check(this, 'checkBox22');">
+                </div>
+                <div class="point-group inputValueGroup">
+                    <input type="checkbox" id="t2-lowHang1" class="inputValue checkBox21" value="1" onclick= "check(this, 'checkBox21');">
+                    <input type="checkbox" id="t2-lowHang2" class="inputValue checkBox22" value="1" onclick= "check(this, 'checkBox22');">
+                </div>
+                <div class="point-group inputValueGroup">
+                    <input type="checkbox" id="t2-park1" class="inputValue checkBox21" value="1" onclick= "check(this, 'checkBox21');">
+                    <input type="checkbox" id="t2-park2" class="inputValue checkBox22" value="1" onclick= "check(this, 'checkBox22');">
+                </div>
             </div>
         </div>
 

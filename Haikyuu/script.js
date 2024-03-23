@@ -103,37 +103,48 @@ function calculateScores(inputRef, type) {
 
 	let scoreInvalid = false;
 	const t1Balls = document.getElementById("t1-numBalls").value;
-	const t1HighHang = document.getElementById("t1-highHang");
-	const t1LowHang = document.getElementById("t1-lowHang");
-	const t1Park = document.getElementById("t1-park");
+	const t1HighHang1 = document.getElementById("t1-highHang1");
+	const t1LowHang1 = document.getElementById("t1-lowHang1");
+	const t1Park1 = document.getElementById("t1-park1");
+    const t1HighHang2 = document.getElementById("t1-highHang2");
+	const t1LowHang2 = document.getElementById("t1-lowHang2");
+	const t1Park2 = document.getElementById("t1-park2");
     const t2Balls = document.getElementById("t2-numBalls").value;
-	const t2HighHang = document.getElementById("t2-highHang");
-	const t2LowHang = document.getElementById("t2-lowHang");
-	const t2Park = document.getElementById("t2-park");
-	const scoreKey = [1, 4, 2, 1, 1, 4, 2, 1];
+	const t2HighHang1 = document.getElementById("t2-highHang1");
+	const t2LowHang1 = document.getElementById("t2-lowHang1");
+	const t2Park1 = document.getElementById("t2-park1");
+	const t2HighHang2 = document.getElementById("t2-highHang2");
+	const t2LowHang2 = document.getElementById("t2-lowHang2");
+	const t2Park2 = document.getElementById("t2-park2");
+	const scoreKey = [1, 4, 2, 1, 4, 2, 1, 1, 4, 2, 1, 4, 2, 1];
 
 	let matchData = [
         t1Balls,
-        t1HighHang.checked ? 1 : 0,
-        t1LowHang.checked ? 1 : 0,
-        t1Park.checked ? 1 : 0,
+        t1HighHang1.checked ? 1 : 0,
+        t1LowHang1.checked ? 1 : 0,
+        t1Park1.checked ? 1 : 0,
+        t1HighHang2.checked ? 1 : 0,
+        t1LowHang2.checked ? 1 : 0,
+        t1Park2.checked ? 1 : 0,
         t2Balls,
-        t2HighHang.checked ? 1 : 0,
-        t2LowHang.checked ? 1 : 0,
-        t2Park.checked ? 1 : 0
+        t2HighHang1.checked ? 1 : 0,
+        t2LowHang1.checked ? 1 : 0,
+        t2Park1.checked ? 1 : 0,
+        t2HighHang2.checked ? 1 : 0,
+        t2LowHang2.checked ? 1 : 0,
+        t2Park2.checked ? 1 : 0
     ];
 
-    console.log(matchData);
 
 	matchData = matchData.map(function (currentElement) {
 		return currentElement == "" ? 0 : parseInt(currentElement);
 	});
 
-	for(let i = 0; i < 4; i++) {
+	for(let i = 0; i < 7; i++) {
 		score1 += matchData[i] * scoreKey[i];
 	}
 
-    for(let i = 3; i < 8; i++) {
+    for(let i = 6; i < 14; i++) {
 		score2 += matchData[i] * scoreKey[i];
 	}
 
@@ -149,13 +160,19 @@ function calculateScores(inputRef, type) {
 
 function clearFields() {
 	document.getElementById("t1-numBalls").value = "";
-	document.getElementById("t1-highHang").checked = false;
-	document.getElementById("t1-lowHang").checked = false;
-	document.getElementById("t1-park").checked = false;
+	document.getElementById("t1-highHang1").checked = false;
+	document.getElementById("t1-lowHang1").checked = false;
+	document.getElementById("t1-park1").checked = false;
+    document.getElementById("t1-highHang2").checked = false;
+	document.getElementById("t1-lowHang2").checked = false;
+	document.getElementById("t1-park2").checked = false;
 	document.getElementById("t2-numBalls").value = "";
-	document.getElementById("t2-highHang").checked = false;
-	document.getElementById("t2-lowHang").checked = false;
-	document.getElementById("t2-park").checked = false;
+	document.getElementById("t2-highHang1").checked = false;
+	document.getElementById("t2-lowHang1").checked = false;
+	document.getElementById("t2-park1").checked = false;
+    document.getElementById("t2-highHang2").checked = false;
+	document.getElementById("t2-lowHang2").checked = false;
+	document.getElementById("t2-park2").checked = false;
 	calculateScores();
 }
 
@@ -177,13 +194,19 @@ window.addEventListener("DOMContentLoaded", function() {
     const timerText = this.document.getElementById("timerText");
     // score variables
 	const t1Balls = document.getElementById("t1-numBalls");
-	const t1HighHang = document.getElementById("t1-highHang");
-	const t1LowHang = document.getElementById("t1-lowHang");
-	const t1Park = document.getElementById("t1-park");
+	const t1HighHang1 = document.getElementById("t1-highHang1");
+	const t1LowHang1 = document.getElementById("t1-lowHang1");
+	const t1Park1 = document.getElementById("t1-park1");
+    const t1HighHang2 = document.getElementById("t1-highHang2");
+	const t1LowHang2 = document.getElementById("t1-lowHang2");
+	const t1Park2 = document.getElementById("t1-park2");
     const t2Balls = document.getElementById("t2-numBalls");
-	const t2HighHang = document.getElementById("t2-highHang");
-	const t2LowHang = document.getElementById("t2-lowHang");
-	const t2Park = document.getElementById("t2-park");
+	const t2HighHang1 = document.getElementById("t2-highHang1");
+	const t2LowHang1 = document.getElementById("t2-lowHang1");
+	const t2Park1 = document.getElementById("t2-park1");
+	const t2HighHang2 = document.getElementById("t2-highHang2");
+	const t2LowHang2 = document.getElementById("t2-lowHang2");
+	const t2Park2 = document.getElementById("t2-park2");
 
     const clearBtn = document.getElementById("clearBtn");
     const timerSwitch = document.getElementById("timerSwitch");
@@ -200,20 +223,32 @@ window.addEventListener("DOMContentLoaded", function() {
         t1Balls.addEventListener("keyup", () => calculateScores(t1Balls, 1));
         t1Balls.addEventListener("change", () => calculateScores(t1Balls, 1));
 
-        t1HighHang.addEventListener("change", () => calculateScores(t1HighHang, 2));
+        t1HighHang1.addEventListener("change", () => calculateScores(t1HighHang1, 2));
 
-        t1LowHang.addEventListener("change", () => calculateScores(t1LowHang, 2));
+        t1LowHang1.addEventListener("change", () => calculateScores(t1LowHang1, 2));
 
-        t1Park.addEventListener("change", () => calculateScores(t1Park, 2));
+        t1Park1.addEventListener("change", () => calculateScores(t1Park1, 2));
+
+        t1HighHang2.addEventListener("change", () => calculateScores(t1HighHang2, 2));
+
+        t1LowHang2.addEventListener("change", () => calculateScores(t1LowHang2, 2));
+
+        t1Park2.addEventListener("change", () => calculateScores(t1Park2, 2));
 
         t2Balls.addEventListener("keyup", () => calculateScores(t2Balls, 1));
         t2Balls.addEventListener("change", () => calculateScores(t2Balls, 1));
 
-        t2HighHang.addEventListener("change", () => calculateScores(t2HighHang, 2));
+        t2HighHang1.addEventListener("change", () => calculateScores(t2HighHang1, 2));
 
-        t2LowHang.addEventListener("change", () => calculateScores(t2LowHang, 2));
+        t2LowHang1.addEventListener("change", () => calculateScores(t2LowHang1, 2));
 
-        t2Park.addEventListener("change", () => calculateScores(t2Park, 2));
+        t2Park1.addEventListener("change", () => calculateScores(t2Park1, 2));
+
+        t2HighHang2.addEventListener("change", () => calculateScores(t2HighHang2, 2));
+
+        t2LowHang2.addEventListener("change", () => calculateScores(t2LowHang2, 2));
+
+        t2Park2.addEventListener("change", () => calculateScores(t2Park2, 2));
 
         //score buttons
         clearBtn.addEventListener("click", clearFields);
@@ -221,27 +256,25 @@ window.addEventListener("DOMContentLoaded", function() {
     }   
 });
 
-function check(input, className)
-{
+function check(input, className){
     
     var checkboxes = document.getElementsByClassName(className);
     
-    for(var i = 0; i < checkboxes.length; i++)
-    {
-        //uncheck all
-        if(checkboxes[i].checked == true)
-        {
-            checkboxes[i].checked = false;
-        }
-    }
-    
-    //set checked of clicked object
-    if(input.checked == true)
-    {
+    // uncheck previosuly check button
+    if(input.checked == false){
         input.checked = false;
     }
-    else
-    {
+    else{   
+        for(var i = 0; i < checkboxes.length; i++)
+        {
+            //uncheck all
+            if(checkboxes[i].checked == true)
+            {
+                checkboxes[i].checked = false;
+            }
+        }
+
         input.checked = true;
     }	
+
 }

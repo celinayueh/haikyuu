@@ -175,16 +175,30 @@ p {
     color:#000;
 }
 
+.inputValueGroup {
+    margin-left: 10px;
+    width: 100px;
+    height: 40px;
+    font-size: 32px;
+    text-align: center;
+    color:#000;
+}
+
 img.logo {
     margin-top: 10px;
     width: 200px;
     height: auto;
 }
 
-input[type='checkbox']{
-    height: 50%;
-    width: 50%;
+.point-group{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
 
+input[type='checkbox'] {
+    height: 100%;
+    width: 100%;
 }
 
 /* #t1Score {
